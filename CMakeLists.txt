@@ -100,7 +100,7 @@ endif ()
 # Language and compiler features.
 #--------------------------------------------------------------------------------------------------
 
-set (CMAKE_CXX_STANDARD 11)
+set (CMAKE_CXX_STANDARD 17)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
 set (CMAKE_CXX_EXTENSIONS OFF)
 
@@ -379,6 +379,7 @@ else ()
 endif ()
 
 if (USE_FIND_PACKAGE_FOR_OIIO)
+    message ("\n\n\n\nOIIO\n ${OPENIMAGEIO_INCLUDE_DIRS}")
     include_directories (${OPENIMAGEIO_INCLUDE_DIRS})
 else ()
     include_directories (${APPLESEED_DEPS_STAGE_DIR}/oiio-debug/include)
@@ -386,6 +387,7 @@ endif ()
 
 if (USE_FIND_PACKAGE_FOR_OSL)
     include_directories (${OSL_INCLUDE_DIRS})
+    message ("\n\n\nOSL STUFF ${OSL_INCLUDE_DIRS}")
 else ()
     include_directories (${APPLESEED_DEPS_STAGE_DIR}/osl-debug/include)
 endif ()

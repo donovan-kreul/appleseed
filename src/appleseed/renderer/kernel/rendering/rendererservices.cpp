@@ -240,7 +240,7 @@ bool RendererServices::get_inverse_matrix(
 bool RendererServices::get_matrix(
     OSL::ShaderGlobals*         sg,
     OSL::Matrix44&              result,
-    OIIO::ustring               from,
+    OSL::ustringhash            from,
     float                       time)
 {
     if (from == g_camera_ustr)
@@ -258,7 +258,7 @@ bool RendererServices::get_matrix(
 bool RendererServices::get_inverse_matrix(
     OSL::ShaderGlobals*         sg,
     OSL::Matrix44&              result,
-    OSL::ustring                to,
+    OSL::ustringhash                to,
     float                       time)
 {
     if (to == g_camera_ustr)
@@ -280,7 +280,7 @@ bool RendererServices::get_inverse_matrix(
 bool RendererServices::get_matrix(
     OSL::ShaderGlobals*         sg,
     OSL::Matrix44&              result,
-    OIIO::ustring               from)
+    OSL::ustringhash               from)
 {
     if (from == g_camera_ustr)
     {
@@ -299,7 +299,7 @@ bool RendererServices::get_matrix(
 bool RendererServices::get_inverse_matrix(
     OSL::ShaderGlobals*         sg,
     OSL::Matrix44&              result,
-    OSL::ustring                to)
+    OSL::ustringhash                to)
 {
     if (to == g_camera_ustr)
     {
@@ -340,8 +340,8 @@ namespace
 
 bool RendererServices::transform_points(
     OSL::ShaderGlobals*         sg,
-    OSL::ustring                from,
-    OSL::ustring                to,
+    OSL::ustringhash                from,
+    OSL::ustringhash                to,
     float                       time,
     const OSL::Vec3*            Pin,
     OSL::Vec3*                  Pout,
@@ -515,8 +515,8 @@ bool RendererServices::trace(
 
 bool RendererServices::getmessage(
     OSL::ShaderGlobals*         sg,
-    OIIO::ustring               source,
-    OIIO::ustring               name,
+    OSL::ustringhash               source,
+    OSL::ustringhash               name,
     OIIO::TypeDesc              type,
     void*                       val,
     bool                        derivatives)
@@ -559,9 +559,9 @@ bool RendererServices::getmessage(
 bool RendererServices::get_attribute(
     OSL::ShaderGlobals*         sg,
     bool                        derivatives,
-    OIIO::ustring               object,
+    OSL::ustringhash               object,
     OIIO::TypeDesc              type,
-    OIIO::ustring               name,
+    OSL::ustringhash               name,
     void*                       val)
 {
     // We don't support getting attributes from named objects, yet.
@@ -586,9 +586,9 @@ bool RendererServices::get_attribute(
 bool RendererServices::get_array_attribute(
     OSL::ShaderGlobals*         sg,
     bool                        derivatives,
-    OIIO::ustring               object,
+    OSL::ustringhash               object,
     OIIO::TypeDesc              type,
-    OIIO::ustring               name,
+    OSL::ustringhash               name,
     int                         index,
     void*                       val)
 {
@@ -597,7 +597,7 @@ bool RendererServices::get_array_attribute(
 
 bool RendererServices::get_userdata(
     bool                        derivatives,
-    OIIO::ustring               name,
+    OSL::ustringhash               name,
     OIIO::TypeDesc              type,
     OSL::ShaderGlobals*         sg,
     void*                       val)
