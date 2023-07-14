@@ -291,9 +291,9 @@ class RendererServices
         bool get_attr_##name(                   \
             OSL::ShaderGlobals*     sg,         \
             bool                    derivs,     \
-            OIIO::ustring           object,     \
+            OSL::ustringhash           object,     \
             OIIO::TypeDesc          type,       \
-            OIIO::ustring           name,       \
+            OSL::ustringhash           name,       \
             void*                   val) const
 
     // Object attributes.
